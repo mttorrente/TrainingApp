@@ -14,12 +14,12 @@ h1, h2, h3 {
 }
 
 .navbar {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 
 .details-text {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .details-img {
@@ -33,7 +33,7 @@ h1, h2, h3 {
 }
 
 .logout-button {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .profile-img {
@@ -41,7 +41,7 @@ h1, h2, h3 {
 }
 
 .index-img {
-  height: 500px;
+  height: 450px;
   object-fit: cover;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -60,9 +60,22 @@ h1, h2, h3 {
 }
 
 #trainingsMap {
-  height: 500px;
-  background-color: red;
+  height: 450px;
+  background-color: rgb(104, 97, 97);
 }
+
+.footer {
+  font-size: 0.7em;
+  color: rgb(104, 97, 97);
+  margin-top: 30px;
+  
+}
+
+.col-md-6 {
+  margin-top: 70px;
+}
+
+
 
 
 
