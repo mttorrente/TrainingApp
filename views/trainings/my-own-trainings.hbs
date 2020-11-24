@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h1>MIS ENTRENAMIENTOS</h1>
+
+    <hr>
+
+    <div class="row justify-content-around">
+
+        <div class="col-md-4 details-text">
+
+            <h3>{{name}}</h3>
+
+            <p><strong>Descripción:</strong> {{description}}</p>
+
+            <a href="/entrenamientos/detalle/{{_id}}" class="btn btn-dark">Detalles</a>
+            <a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}" class="btn btn-dark">Editar</a>
+            <a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}" class="btn btn-dark">Eliminar</a>
+
+            <hr>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <article>
+                <figure class="abs-img">
+                    <img src="{{image}}" alt="{{name}} {{description}}">
+                </figure>
+                <strong>{{description}}</strong>
+            </article>
+
+
+
+        </div>
+    </div>
+
+
+    <hr>
+    <a href="/perfil" class="btn btn-dark">Volver a Perfil</a>

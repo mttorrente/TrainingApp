@@ -1,0 +1,63 @@
+<div class="container">
+
+    <h1>¡Bienvenid@ a tu perfil, {{user.username}}!</h1>
+
+    <hr>
+
+    <div class="row justify-content-around">
+
+        <div class="col-md-4">
+
+
+            <h3>Mis entrenamientos</h3>
+
+            <hr>
+
+            <figure class="trainings-img">
+                <img class="profile-img" src="/images/my-trainings.jpeg" alt="mis-entrenamientos">
+            </figure>
+
+            <a href="/entrenamientos/mis-entrenamientos" class="btn btn-dark">Ver</a>
+        </div>
+
+        <hr>
+        {{!-- [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
+                [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>] --}}
+
+
+
+        <div class="col-md-4">
+
+
+            <h3>Favoritos</h3>
+
+            <hr>
+
+            <figure class="trainings-img">
+                <img class="profile-img" src="/images/fav-trainings.jpeg" alt="favoritos">
+            </figure>
+
+            <a href="/entrenamientos/entrenamientos-fav/" class="btn btn-dark">Ver</a>
+
+            <hr>
+        </div>
+    </div>
+</div>
+
+
+<div class="col text-center">
+    <a href="/crear-entrenamiento" class="btn btn-dark logout-button">Crear entrenamiento</a>
+
+    <a href="/cerrar-sesion" class="btn btn-dark logout-button">Cerrar sesión</a>
+
+    {{#if isAdmin}}
+    <a href="#" class="btn btn-danger logout-button">Eliminar perfil (solo admin!)</a>
+    {{/if}}
+</div>
+
+
+
+
+
+
+</div>

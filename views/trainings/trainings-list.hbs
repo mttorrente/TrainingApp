@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Listado de entrenamientos</h1>
+
+    <ul>
+        {{#each allTrainings}}
+        <li>{{name}} <small>
+                [<a href="/entrenamientos/detalle/{{_id}}">ver detalles</a>]
+                [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
+                [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>]
+                [<a href="/entrenamientos/entrenamientos-fav?training_id={{_id}}">añadir a favoritos</a>]                            
+                
+                               
+            </small></li>
+        {{/each}}
+    </ul>
+
+    
+     <a href="/crear-entrenamiento" class="btn btn-dark">Crear entrenamiento</a>
+     
+</div>

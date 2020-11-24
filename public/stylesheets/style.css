@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  font-weight: 100;
+  background-image: url(../images/fondo1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100%; }
+
+h1, h2, h3 {
+  font-weight: 100; }
+
+.navbar {
+  margin-bottom: 40px; }
+
+.details-text {
+  padding-top: 80px; }
+
+.create-button {
+  margin-top: 20px; }
+
+.logout-button {
+  margin-top: 20px; }
+
+.profile-img {
+  height: 300px; }
+
+.index-img {
+  height: 500px;
+  object-fit: cover;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.index-h3 {
+  margin-right: 20px; }
+
+.index-h3-1 {
+  margin-left: 20px; }
+
+.index-button {
+  margin-left: 100px; }
+
+/*# sourceMappingURL=style.css.map */

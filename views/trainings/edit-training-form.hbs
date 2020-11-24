@@ -1,0 +1,57 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h1>Editar {{name}}</h1>
+
+            <form method="POST" action="/entrenamientos/editar-entrenamiento?training_id={{_id}}">
+
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" name="name" value="{{name}}">
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <input type="text" class="form-control" name="description" value="{{description}}">
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <input type="text" class="form-control" name="type" value="{{type}}">
+                </div>
+                <div class="form-group">
+                    <label>Duración</label>
+                    <input type="number" class="form-control" name="duration" value="{{duration}}">
+                    {{!-- <small class="form-text text-muted">Respeta las puntuaciones de IMDB.</small> --}}
+                </div>
+                <div class="form-group">
+                    <label>Número de ejercicios</label>
+                    <input type="number" class="form-control" name="exercisesNumber" value="{{exercisesNumber}}">
+                </div>
+                <div class="form-group">
+                    <label for="exercise-list">Ejercicio:</label>
+                    <select name="exercise" class="form-control" id="exercise-list">
+                        <option>Seleccionar</option>
+                        <option>Pecho</option>
+                        <option>Espalda</option>
+                        <option>Brazos</option>
+                        <option>Piernas</option>
+                        <option>Abdomen</option>
+                        <option>Cardio</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Imagen</label>
+                    <input type="number" class="form-control" name="image" value="{{image}}">
+                    {{!-- <small class="form-text text-muted">Respeta las puntuaciones de IMDB.</small> --}}
+                </div>
+                <button type="submit" class="btn btn-dark">Guardar edición</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
