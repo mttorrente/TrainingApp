@@ -1,20 +1,63 @@
+{{> navBar}}
 <div class="container">
+
     <h1>Listado de entrenamientos</h1>
 
-    <ul>
-        {{#each allTrainings}}
-        <li>{{name}} <small>
-                [<a href="/entrenamientos/detalle/{{_id}}">ver detalles</a>]
-                [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
-                [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>]
-                [<a href="/entrenamientos/entrenamientos-fav?training_id={{_id}}">añadir a favoritos</a>]                            
-                
-                               
-            </small></li>
-        {{/each}}
-    </ul>
+    <hr>
 
-    
-     <a href="/crear-entrenamiento" class="btn btn-dark">Crear entrenamiento</a>
-     
+    <div class="row justify-content-around">
+
+        <div class="col-md-4">
+
+
+            <h3>Elige el tuyo</h3>
+
+            <hr>
+
+            <ul>
+                {{#each allTrainings}}
+                <li>{{name}} <small>
+                        [<a href="/entrenamientos/detalle/{{_id}}">ver detalles</a>]
+                        [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
+                        [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>]
+                        <form method="POST" action="/entrenamientos/entrenamientos-fav?training_id={{_id}}">
+                        [<button type="submit">añadir a favoritos</button>]
+                        </form>
+
+                    </small></li>
+                {{/each}}
+            </ul>
+
+        </div>
+
+        <hr>
+
+
+        <div class="col-md-8">
+
+
+            <h3>Encuentra el más cercano</h3>
+
+            <hr>
+
+            <div id="trainingsMap"></div>
+
+
+            <hr>
+        </div>
+    </div>
 </div>
+
+
+<div class="col text-center">
+    <a href="/entrenamientos/crear-entrenamiento" class="btn btn-dark">Crear entrenamiento</a>
+</div>
+
+{{!-- Scripts estáticos --}}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="/javascripts/styles.js"></script>
+<script src="/javascripts/trainings-map.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMKC2-CTXwtdCUZEuOgTlPfEESu58gUKo&callback=initApp"></script>
+{{> footer}}

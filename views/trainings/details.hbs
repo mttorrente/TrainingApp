@@ -1,3 +1,4 @@
+{{> navBar}}
 <div class="container">
 
     <h1>{{name}}</h1>
@@ -16,22 +17,22 @@
             <p><strong>Tipo:</strong> {{type}}</p>
             <p><strong>Duration:</strong> {{duration}}</p>
             <p><strong>Número de ejercicios:</strong> {{exercisesNumber}}</p>
-             <p><strong>Ejercicios:</strong> {{exercises}}</p>
+            <p><strong>Ejercicios:</strong> {{exercises}}</p>
 
             <a href="/entrenamientos" class="btn btn-dark">Volver a los entrenamientos</a>
 
         </div>
 
         <div class="col-md-4">
-         
+
             <article>
-                <figure class="abs-img">
-                    <img src="{{image}}" alt="{{name}} {{description}}">
+                <figure>
+                    <img class="details-img" src="{{image}}" alt="{{name}} {{description}}">
                 </figure>
-                <strong>{{description}}</strong> 
+                <strong>{{name}}</strong>
             </article>
 
-           
+
 
         </div>
     </div>
@@ -42,3 +43,4 @@
 
 
 </div>
+{{> footer}}

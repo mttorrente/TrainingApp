@@ -8,10 +8,11 @@ const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 
 
-// Registro (GET)
+// Registre (GET)
 router.get("/registro", (req, res) => res.render("auth/signup"))
 
-// Registro (POST)
+
+// Registre (POST)
 router.post("/registro", (req, res, next) => {
 
     const { username, password } = req.body
@@ -40,12 +41,11 @@ router.post("/registro", (req, res, next) => {
 })
 
 
-
-
-// Inicio sesión (GET)
+// Log In (GET)
 router.get("/inicio-sesion", (req, res) => res.render("auth/login", { errorMsg: req.flash("error") }))
 
-// Inicio sesión (POST)
+
+// Log In (POST)
 router.post("/inicio-sesion", passport.authenticate("local", {
     successRedirect: "/perfil",
     failureRedirect: "/inicio-sesion",
@@ -54,7 +54,7 @@ router.post("/inicio-sesion", passport.authenticate("local", {
 }))
 
 
-// Cerrar sesión
+// Log Out
 router.get('/cerrar-sesion', (req, res) => {
     req.logout()
     res.redirect("/inicio-sesion")

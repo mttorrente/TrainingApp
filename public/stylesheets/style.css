@@ -4,8 +4,7 @@ body {
   background-image: url(../images/fondo1.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  max-width: 100%; }
+  background-size: cover; }
 
 h1, h2, h3 {
   font-weight: 100; }
@@ -14,7 +13,12 @@ h1, h2, h3 {
   margin-bottom: 40px; }
 
 .details-text {
-  padding-top: 80px; }
+  padding-top: 20px; }
+
+.details-img {
+  height: 500px;
+  object-fit: cover;
+  width: 700px; }
 
 .create-button {
   margin-top: 20px; }
@@ -39,5 +43,9 @@ h1, h2, h3 {
 
 .index-button {
   margin-left: 100px; }
+
+#trainingsMap {
+  height: 500px;
+  background-color: red; }
 
 /*# sourceMappingURL=style.css.map */

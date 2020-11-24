@@ -19,7 +19,13 @@ h1, h2, h3 {
 
 
 .details-text {
-  padding-top: 80px;
+  padding-top: 20px;
+}
+
+.details-img {
+  height: 500px;
+  object-fit: cover;
+  width: 700px;
 }
 
 .create-button {
@@ -51,6 +57,11 @@ h1, h2, h3 {
 
 .index-button {
   margin-left: 100px;
+}
+
+#trainingsMap {
+  height: 500px;
+  background-color: red;
 }
 
 

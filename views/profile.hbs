@@ -1,3 +1,4 @@
+{{> navBar}}
 <div class="container">
 
     <h1>¡Bienvenid@ a tu perfil, {{user.username}}!</h1>
@@ -46,7 +47,7 @@
 
 
 <div class="col text-center">
-    <a href="/crear-entrenamiento" class="btn btn-dark logout-button">Crear entrenamiento</a>
+    <a href="/entrenamientos/crear-entrenamiento" class="btn btn-dark logout-button">Crear entrenamiento</a>
 
     <a href="/cerrar-sesion" class="btn btn-dark logout-button">Cerrar sesión</a>
 
@@ -61,3 +62,4 @@
 
 
 </div>
+{{> footer}}

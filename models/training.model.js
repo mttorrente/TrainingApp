@@ -24,6 +24,12 @@ const trainingSchema = new Schema({
         type: String,
         enum: ['Pecho', 'Espalda', 'Brazos', 'Piernas', 'Abdomen', 'Cardio']       
     },
+    location: {                 
+        type: {
+            type: String
+        },
+        coordinates: [Number]
+    },
     image: String
 }, {
     timestamps: true
