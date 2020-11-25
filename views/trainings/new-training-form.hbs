@@ -7,7 +7,7 @@
 
             <h1>Crear nuevo entrenamiento</h1>
 
-            <form method="POST" action="/entrenamientos/crear-entrenamiento"> {{!--enctype="multipart/form-data"--}}
+            <form method="POST" action="/entrenamientos/crear-entrenamiento" enctype="multipart/form-data"> 
 
                 <div class="form-group">
                     <label>Nombre</label>
@@ -15,28 +15,28 @@
                 </div>
                 <div class="form-group">
                     <label>Descripción</label>
-                    <input type="text" class="form-control" name="description">
+                    <textarea type="text" class="form-control" name="description" rows="5"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="exercise-list">Tipo:</label>
-                    <select name="exercise" class="form-control" id="type-list">
+                    <label for="exercise-list">Lugar:</label>
+                    <select name="type" class="form-control" id="type-list">
                         <option>Seleccionar</option>
-                        <option>Público</option>
-                        <option>Privado</option>
+                        <option>Al aire libre</option>
+                        <option>En casa</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Duración</label>
                     <input type="number" class="form-control" name="duration">
-                    {{!-- <small class="form-text text-muted">Respeta las puntuaciones de IMDB.</small> --}}
+                    <small class="form-text text-muted">Duración mínima a establecer: 15 minutos.</small>
                 </div>
                 <div class="form-group">
                     <label>Número de ejercicios</label>
-                    <input type="text" class="form-control" name="exerciseNumber">
+                    <input type="text" class="form-control" name="exercisesNumber">
                 </div>
                 <div class="form-group">
-                    <label for="exercise-list">Ejercicio:</label>
-                    <select name="exercise" class="form-control" id="exercise-list">
+                    <label for="exercise-list">Zona a trabajar:</label>
+                    <select name="exercises" class="form-control" id="exercise-list">
                         <option>Seleccionar</option>
                         <option>Pecho</option>
                         <option>Espalda</option>
@@ -50,7 +50,7 @@
                 <div class='form-group'>
                     <label for="exercise-list">Imagen del ejercicio:</label>
                     <div class="custom-file">
-                        <input name="image" type="file" class="custom-file-input" id="image">
+                        <input type="file" name="image" class="custom-file-input" id="image">
                         <label class="custom-file-label" for="image">Seleccionar imagen</label>
                     </div>
                     <button type="submit" class="btn btn-dark create-button">Crear nuevo entrenamiento</button>

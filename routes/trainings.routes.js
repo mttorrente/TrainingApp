@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const mongoose = require('mongoose')
 
 const Training = require('./../models/training.model')
 const User = require('../models/user.model')
@@ -37,11 +38,13 @@ router.get('/crear-entrenamiento',  ensureAuthenticated, checkRole(['USER', 'ADM
 
 // New training form: (POST)
 router.post('/crear-entrenamiento', (req, res) => {
-
-    const { name, description, type, duration, exerciseNumber, exercise, location, image } = req.body
+    
+    const { name, description, type, duration, exercisesNumber, exercises, location, image, owner } = req.body
+    
+    // const ownerInfo = req.user._id
 
     Training
-        .create({ name, description, type, duration, exerciseNumber, exercise, location, image })
+        .create({ name, description, type, duration, exercisesNumber, exercises, location, image, owner})
         .then(() => res.redirect('/entrenamientos'))
         .catch(err => console.log('Error:', err))
 })
@@ -85,33 +88,37 @@ router.get('/eliminar-entrenamiento', (req, res) => {
 })
 
 
-// Favourite trainings list: (GET)
-router.get('/entrenamientos-fav', (req, res) => {
-
-    const trainingId = req.query.training_id
-
-    Training
-        .findById(trainingId)
-        .then(trainingInfo => res.render('trainings/fav-trainings', trainingInfo))
-        .catch(err => console.log(err))
-})
-
-
 // My own trainings: (GET)
-router.get('/mis-entrenamientos', (req, res) => {
+router.get('/mis-entrenamientos',ensureAuthenticated ,(req, res) => {
+
+    const id = req.user.id
+    const filterId = mongoose.Types.ObjectId(id)
 
     Training
-        .find()
-        .then(itemsOwnedByUser => {
-            const creado = itemsOwnedByUser.filter(req.user._id)
-            res.render('trainings/my-own-trainings', {creado})
+        .find({owner: filterId})
+        .then(items => {
+            res.render('trainings/my-own-trainings',{ items })
         })
-            
         .catch(err => console.log(err))
 })
 
 
-// Add to favourite
+// Favourite trainings list: (GET)
+router.get('/entrenamientos-favoritos', (req, res) => {
+
+    const userId = req.user._id
+
+    User
+        .findById(userId)
+        .then(userInfo => {
+            console.log(userInfo)
+            res.render('trainings/fav-trainings', userInfo)
+        })
+        .catch(err => console.log(err))
+})
+
+
+// Add to favourite trainings list: (POST)
 router.post('/entrenamientos-fav', ensureAuthenticated, (req, res) => {
 
     const trainingId = req.query.training_id                            
@@ -121,13 +128,12 @@ router.post('/entrenamientos-fav', ensureAuthenticated, (req, res) => {
     Training
         .findById(trainingId)
         .then(training => {
-            console.log(training)
             let favList = [...favourites, training]
             return User.findByIdAndUpdate({_id}, { favourites: favList })
            
         })
             
-        .then(res.render('trainings/fav-trainings'))
+        .then(res.redirect('/entrenamientos/entrenamientos-favoritos'))
         .catch(err => console.log(err))
 })
 

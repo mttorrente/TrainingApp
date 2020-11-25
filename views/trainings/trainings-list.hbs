@@ -1,7 +1,8 @@
 {{> navBar}}
 <div class="container">
-
+      <div class="col text-center">
     <h1>Listado de entrenamientos</h1>
+    </div>
 
     <hr>
 
@@ -9,41 +10,53 @@
 
         <div class="col-md-4">
 
-
+            <div class="col text-center">
             <h3>Elige el tuyo</h3>
-
+            </div>
             <hr>
 
-            <ul>
+            <ul class="trainings-list">
                 {{#each allTrainings}}
-                <li>{{name}} <small>
-                        [<a href="/entrenamientos/detalle/{{_id}}">ver detalles</a>]
-                        [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
-                        [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>]
+                <li>
+                    <h4><strong>{{name}}</strong></h4>
+                    <p>{{type}}</p>
+                    <small>
+                        <div class="row">
+                            <div class="col-2">
+                        <a class="btn btn-dark btn-sm list-button" href="/entrenamientos/detalle/{{_id}}">ver</a>
+                        </div>
+                        <div class="col-4">
                         <form method="POST" action="/entrenamientos/entrenamientos-fav?training_id={{_id}}">
-                        [<button type="submit">añadir a favoritos</button>]
+                            <button class="btn btn-dark btn-sm list-button" type="submit">guardar</button>
                         </form>
-
-                    </small></li>
+                        </div>
+                        {{!-- [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
+                        [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>] --}}
+                        </div>
+                        <hr>
+                    </small>
+                </li>
                 {{/each}}
             </ul>
+
+
 
         </div>
 
         <hr>
 
 
-        <div class="col-md-8">
+        <div class="col-md-8 map-container">
 
-
+            <div class="col text-center">
             <h3>Encuentra el más cercano</h3>
-
-            <hr>
+            </div>
+           
 
             <div id="trainingsMap"></div>
 
 
-            <hr>
+            
         </div>
     </div>
 </div>
@@ -58,6 +71,5 @@
 
 <script src="/javascripts/styles.js"></script>
 <script src="/javascripts/trainings-map.js"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key={{map}}&callback=initApp"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{map}}&callback=initApp"></script>
 {{> footer}}

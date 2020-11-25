@@ -10,7 +10,7 @@ const trainingSchema = new Schema({
     description: String,
     type: {
         type: String,
-        enum: ['Público', 'Privado']
+        enum: ['Al aire libre', 'En casa']
     },
     duration: {
         type: Number,

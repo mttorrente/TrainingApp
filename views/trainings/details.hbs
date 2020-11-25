@@ -7,18 +7,19 @@
 
     <div class="row justify-content-around">
 
-        <div class="col-md-4 details-text">
+        <div class="col-md-8 details-text">
 
             <h3>Detalles</h3>
 
-            <hr>
+            <hr class="details-border">
 
             <p><strong>Descripción:</strong> {{description}}</p>
-            <p><strong>Tipo:</strong> {{type}}</p>
-            <p><strong>Duration:</strong> {{duration}}</p>
+            <p><strong>Lugar:</strong> {{type}}</p>
+            <p><strong>Duración:</strong> {{duration}}</p>
             <p><strong>Número de ejercicios:</strong> {{exercisesNumber}}</p>
-            <p><strong>Ejercicios:</strong> {{exercises}}</p>
+            <p><strong>Zona a trabajar:</strong> {{exercises}}</p>
 
+           
             <a href="/entrenamientos" class="btn btn-dark">Volver a los entrenamientos</a>
 
         </div>
@@ -27,7 +28,7 @@
 
             <article>
                 <figure>
-                    <img class="details-img" src="{{image}}" alt="{{name}} {{description}}">
+                    <img class="details-img" src="{{image}}" alt="{{name}}">
                 </figure>
                 <strong>{{name}}</strong>
             </article>

@@ -15,24 +15,28 @@
                 </div>
                 <div class="form-group">
                     <label>Descripción</label>
-                    <input type="text" class="form-control" name="description" value="{{description}}">
+                    <textarea type="text" class="form-control" name="description" rows="5" value="{{description}}"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Tipo</label>
-                    <input type="text" class="form-control" name="type" value="{{type}}">
+                    <label for="exercise-list">Lugar:</label>
+                    <select name="type" class="form-control" id="type-list" value="{{type}}">
+                        <option>Seleccionar</option>
+                        <option>Al aire libre</option>
+                        <option>En casa</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Duración</label>
                     <input type="number" class="form-control" name="duration" value="{{duration}}">
-                    {{!-- <small class="form-text text-muted">Respeta las puntuaciones de IMDB.</small> --}}
+                    <small class="form-text text-muted">Duración mínima a establecer: 15 minutos.</small>
                 </div>
                 <div class="form-group">
                     <label>Número de ejercicios</label>
                     <input type="number" class="form-control" name="exercisesNumber" value="{{exercisesNumber}}">
                 </div>
                 <div class="form-group">
-                    <label for="exercise-list">Ejercicio:</label>
-                    <select name="exercise" class="form-control" id="exercise-list">
+                    <label for="exercise-list">Zona a trabajar:</label>
+                    <select name="exercises" class="form-control" id="exercise-list">
                         <option>Seleccionar</option>
                         <option>Pecho</option>
                         <option>Espalda</option>

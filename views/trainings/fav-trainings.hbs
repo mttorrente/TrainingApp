@@ -9,11 +9,15 @@
 
         <div class="col-md-4 details-text">
 
-            {{!-- {{#each favourites}} --}}
+            {{#each favourites}}
+
+             <figure class="abs-img">
+                    <img class="fav-img" src="{{image}}" alt="{{name}} ">
+                </figure>
 
             <h3>{{name}}</h3>
 
-            <p><strong>Descripción:</strong> {{description}}</p>
+            <p><strong>Lugar: </strong>{{type}}</p>
 
             <a href="/entrenamientos/detalle/{{_id}}" class="btn btn-dark">Detalles</a>
             <a href="#" class="btn btn-dark">Quitar</a>
@@ -25,23 +29,24 @@
         <div class="col-md-4">
 
             <article>
-                <figure class="abs-img">
-                    <img src="{{image}}" alt="{{name}} {{description}}">
-                </figure>
-                <strong>{{description}}</strong>
+               
+               
             </article>
 
-            {{!-- {{/each}} --}}
+           {{/each}}
             
-            <a href="/perfil" class="btn btn-dark">Volver a Perfil</a>
-
+            
+           
         </div>
+       
     </div>
 
 
     <hr>
-
-
+<div class="col text-center">
+<a href="/perfil" class="btn btn-dark">Volver a Perfil</a>
+</div> 
 
 </div>
+ 
 {{> footer}}

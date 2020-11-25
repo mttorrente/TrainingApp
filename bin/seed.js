@@ -13,7 +13,7 @@ const trainings = [
     {
         name: 'Clase de zumba',
         description: 'Ven a nuestra clase de zumba a las 17h en El Retiro.',
-        type: 'Público',
+        type: 'Al aire libre',
         duration: 50,
         exercisesNumber: 4,
         exercises: 'Cardio',
@@ -24,7 +24,7 @@ const trainings = [
     {
         name: 'Clase de yoga',
         description: 'Únete a una relajante clase de yoga a las 18h en Madrid Río.',
-        type: 'Público',
+        type: 'Al aire libre',
         duration: 40,
         exercisesNumber: 6,
         exercises: 'Cardio',
@@ -35,7 +35,7 @@ const trainings = [
     {
         name: 'Crossfit al aire libre',
         description: 'Apúntate a nuestro team de crossfiteros en el parque Tierno Galván a las 17:30h.',
-        type: 'Público',
+        type: 'Al aire libre',
         duration: 60,
         exercisesNumber: 8,
         exercises: 'Cardio',
@@ -46,7 +46,7 @@ const trainings = [
     {
         name: 'Running',
         description: 'Reunión de runners en Casa de Campo a las 19h.',
-        type: 'Público',
+        type: 'Al aire libre',
         duration: 60,
         exercisesNumber: 1,
         exercises: 'Cardio',
@@ -57,7 +57,7 @@ const trainings = [
     {
         name: 'Mindfullness',
         description: 'Clase de meditación guiada en el parque de La Elipa a las 20h.',
-        type: 'Público',
+        type: 'Al aire libre',
         duration: 50,
         exercisesNumber: 1,
         exercises: 'Cardio',
@@ -68,7 +68,7 @@ const trainings = [
     {
         name: 'Patinaje',
         description: 'Reunión de patinadores en el Paseo de Coches de El Retiro, a las 19:30h.',
-        type: 'Público',
+        type: 'Al aire libre',
         duration: 60,
         exercisesNumber: 3,
         exercises: 'Cardio',

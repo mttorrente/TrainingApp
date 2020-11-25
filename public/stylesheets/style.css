@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 100;
   background-image: url(../images/fondo1.jpg);
   background-repeat: no-repeat;
@@ -20,6 +20,10 @@ h1, h2, h3 {
   object-fit: cover;
   width: 700px; }
 
+.details-border {
+  width: 30%;
+  margin-right: 520px; }
+
 .create-button {
   margin-top: 20px; }
 
@@ -33,20 +37,23 @@ h1, h2, h3 {
   height: 450px;
   object-fit: cover;
   padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  margin-left: 20px; }
 
 .index-h3 {
   margin-right: 20px; }
 
 .index-h3-1 {
-  margin-left: 20px; }
+  margin-left: 30px; }
 
 .index-button {
   margin-left: 100px; }
 
 #trainingsMap {
-  height: 450px;
-  background-color: #686161; }
+  height: 700px;
+  width: 900px;
+  background-color: #686161;
+  margin-top: 40px; }
 
 .footer {
   font-size: 0.7em;
@@ -55,5 +62,20 @@ h1, h2, h3 {
 
 .col-md-6 {
   margin-top: 70px; }
+
+.trainings-list {
+  list-style: none; }
+
+.fav-img {
+  height: 200px;
+  object-fit: cover;
+  width: 200px; }
+
+h1 {
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 4em; }
+
+.index-subtitle {
+  margin-left: 60px; }
 
 /*# sourceMappingURL=style.css.map */
