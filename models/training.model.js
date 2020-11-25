@@ -30,7 +30,12 @@ const trainingSchema = new Schema({
         },
         coordinates: [Number]
     },
-    image: String
+    image: String,
+
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'       
+    }
 }, {
     timestamps: true
 });

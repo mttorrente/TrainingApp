@@ -1,8 +1,8 @@
 const express = require('express')
-const User = require('../models/user.model')
 const router = express.Router()
 
 const Training = require('./../models/training.model')
+const User = require('../models/user.model')
 
 
 const ensureAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : res.render('auth/login', { errorMsg: 'Desautorizado, inicia sesión' })
@@ -64,10 +64,10 @@ router.post('/editar-entrenamiento', (req, res) => {
 
     const trainingId = req.query.training_id                            
 
-    const { name, description, type, duration, exerciseNumber, exercise, location, image } = req.body    
+    const { name, description, type, duration, exerciseNumber, exercise, location, image, user_id } = req.body    
 
     Training
-        .findByIdAndUpdate(trainingId, { name, description, type, duration, exerciseNumber, exercise, location, image })
+        .findByIdAndUpdate(trainingId, { name, description, type, duration, exerciseNumber, exercise, location, image, user_id })
         .then(trainingInfo => res.redirect('/entrenamientos'))
         .catch(err => console.log(err))
 })
@@ -100,11 +100,13 @@ router.get('/entrenamientos-fav', (req, res) => {
 // My own trainings: (GET)
 router.get('/mis-entrenamientos', (req, res) => {
 
-    const trainingId = req.query.training_id
-
     Training
-        .findById(trainingId)
-        .then(trainingInfo => res.render('trainings/my-own-trainings', trainingInfo))
+        .find()
+        .then(itemsOwnedByUser => {
+            const creado = itemsOwnedByUser.filter(req.user._id)
+            res.render('trainings/my-own-trainings', {creado})
+        })
+            
         .catch(err => console.log(err))
 })
 
@@ -114,13 +116,17 @@ router.post('/entrenamientos-fav', ensureAuthenticated, (req, res) => {
 
     const trainingId = req.query.training_id                            
 
-   const {favourites} = req.user   
+    const {favourites,_id} = req.user   
 
     Training
         .findById(trainingId)
         .then(training => {
-            let whatever = [...favourites, training]
-            User.findByIdAndUpdate(req.user.id, {favourites: whatever})})
+            console.log(training)
+            let favList = [...favourites, training]
+            return User.findByIdAndUpdate({_id}, { favourites: favList })
+           
+        })
+            
         .then(res.render('trainings/fav-trainings'))
         .catch(err => console.log(err))
 })
