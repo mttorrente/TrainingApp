@@ -1,19 +1,42 @@
 {{> navBar}}
 <div class="container">
-      <div class="col text-center">
-    <h1>Listado de entrenamientos</h1>
+    <div class="col text-center">
+        <h1>Listado de entrenamientos</h1>
     </div>
 
     <hr>
+{{!-- 
+    <div class="row justify-content-center filter-section"> --}}
+        {{!-- <form action="/entrenamientos">
+            <div class="form-row align-items-center">
+                
+                    {{!-- <select name="trainingsSel">
+                        <option>Elige lugar...</option>
+                        <option value="1">Al aire libre</option>
+                        <option value="2">En casa</option>
+                    </select> --}}
+                </div>
+                
+                <div class="col-auto my-1">
+                    <button type="submit" class="btn btn-dark btn-sm">Filtrar</button>
+                </div>
+            
+        </form> --}}
+        <form action='/entrenamientos'>
+        <select name="trainingsSel">
+                        <option>Elige lugar...</option>
+                        <option value="1">Al aire libre</option>
+                        <option value="2">En casa</option>
+            </select>
+            <button type="submit" class="btn btn-dark btn-sm">Filtrar</button>
+        </form>
+    
 
     <div class="row justify-content-around">
 
-        <div class="col-md-4">
+        <div class="col-md-4 training-col">
 
-            <div class="col text-center">
-            <h3>Elige el tuyo</h3>
-            </div>
-            <hr>
+
 
             <ul class="trainings-list">
                 {{#each allTrainings}}
@@ -23,15 +46,15 @@
                     <small>
                         <div class="row">
                             <div class="col-2">
-                        <a class="btn btn-dark btn-sm list-button" href="/entrenamientos/detalle/{{_id}}">ver</a>
-                        </div>
-                        <div class="col-4">
-                        <form method="POST" action="/entrenamientos/entrenamientos-fav?training_id={{_id}}">
-                            <button class="btn btn-dark btn-sm list-button" type="submit">guardar</button>
-                        </form>
-                        </div>
-                        {{!-- [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
-                        [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>] --}}
+                                <a class="btn btn-dark btn-sm list-button"
+                                    href="/entrenamientos/detalle/{{_id}}">ver</a>
+                            </div>
+                            <div class="col-4">
+                                <form method="POST" action="/entrenamientos/entrenamientos-fav?training_id={{_id}}">
+                                    <button class="btn btn-dark btn-sm list-button" type="submit">guardar</button>
+                                </form>
+                            </div>
+
                         </div>
                         <hr>
                     </small>
@@ -48,18 +71,16 @@
 
         <div class="col-md-8 map-container">
 
-            <div class="col text-center">
-            <h3>Encuentra el más cercano</h3>
-            </div>
-           
+
 
             <div id="trainingsMap"></div>
 
 
-            
+
         </div>
     </div>
 </div>
+
 
 
 <div class="col text-center">

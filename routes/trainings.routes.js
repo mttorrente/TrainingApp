@@ -9,12 +9,54 @@ const User = require('../models/user.model')
 const ensureAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : res.render('auth/login', { errorMsg: 'Desautorizado, inicia sesión' })
 const checkRole = admittedRoles => (req, res, next) => admittedRoles.includes(req.user.role) ? next() : res.render('auth/login', { errorMsg: 'Desautorizado, no tienes permisos' })
 
+// const home = 'En casa'
+// const outside = 'Al aire libre'
 
-// Trainings list
+// const checkFilter = placeChosen => (req, res, next) => placeChosen.includes(req.training.type) ? next() : res.render('trainings/trainings-list')
+
+
+// Trainings list (GET)
 router.get('/', (req, res, next) => {
 
     Training
         .find()                                                                             
+        .then(allTrainings => res.render('trainings/trainings-list', { allTrainings }))     
+        .catch(err => next(err))
+})
+
+
+// Trainings list (POST)
+router.post('/', (req, res, next) => {
+
+//     const {trainingsSel} = req.body 
+//     console.log(traningsSel)
+
+//     if (!trainingsSel) {
+//         res.redirect('/entrenamientos')
+//     }
+//    else if(trainingsSel === '1') {
+       res.redirect('/entrenamientos/al-aire-libre')
+//    } else {
+//        res.redirect('/entrenamientos/en-casa')
+//    }
+})
+
+
+// Trainings list at home
+router.get('/en-casa', (req, res, next) => {
+
+    Training
+        .find({type: 'En casa'})                                                                             
+        .then(allTrainings => res.render('trainings/trainings-list', { allTrainings }))     
+        .catch(err => next(err))
+})
+
+
+// Trainings list outside
+router.get('/al-aire-libre', (req, res, next) => {
+
+    Training
+        .find({type: 'Al aire libre'})                                                                             
         .then(allTrainings => res.render('trainings/trainings-list', { allTrainings }))     
         .catch(err => next(err))
 })
@@ -39,12 +81,14 @@ router.get('/crear-entrenamiento',  ensureAuthenticated, checkRole(['USER', 'ADM
 // New training form: (POST)
 router.post('/crear-entrenamiento', (req, res) => {
     
-    const { name, description, type, duration, exercisesNumber, exercises, location, image, owner } = req.body
+    const { name, description, type, duration, exercisesNumber, exercises, location, image } = req.body
     
-    // const ownerInfo = req.user._id
+    const ownerId = req.user.id
+
+    const filterOwnerId = mongoose.Types.ObjectId(ownerId)
 
     Training
-        .create({ name, description, type, duration, exercisesNumber, exercises, location, image, owner})
+        .create({ name, description, type, duration, exercisesNumber, exercises, location, image, owner:filterOwnerId })
         .then(() => res.redirect('/entrenamientos'))
         .catch(err => console.log('Error:', err))
 })
@@ -71,7 +115,7 @@ router.post('/editar-entrenamiento', (req, res) => {
 
     Training
         .findByIdAndUpdate(trainingId, { name, description, type, duration, exerciseNumber, exercise, location, image, user_id })
-        .then(trainingInfo => res.redirect('/entrenamientos'))
+        .then(trainingInfo => res.redirect('/entrenamientos/mis-entrenamientos'))
         .catch(err => console.log(err))
 })
 
@@ -83,7 +127,7 @@ router.get('/eliminar-entrenamiento', (req, res) => {
 
     Training
         .findByIdAndDelete(trainingId)
-        .then(() => res.redirect('/entrenamientos'))
+        .then(() => res.redirect('/entrenamientos/mis-entrenamientos'))
         .catch(err => console.log(err))
 })
 
@@ -96,8 +140,8 @@ router.get('/mis-entrenamientos',ensureAuthenticated ,(req, res) => {
 
     Training
         .find({owner: filterId})
-        .then(items => {
-            res.render('trainings/my-own-trainings',{ items })
+        .then(myTrainings => {
+            res.render('trainings/my-own-trainings',{ myTrainings })
         })
         .catch(err => console.log(err))
 })
@@ -111,7 +155,6 @@ router.get('/entrenamientos-favoritos', (req, res) => {
     User
         .findById(userId)
         .then(userInfo => {
-            console.log(userInfo)
             res.render('trainings/fav-trainings', userInfo)
         })
         .catch(err => console.log(err))

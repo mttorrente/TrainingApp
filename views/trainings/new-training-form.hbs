@@ -7,7 +7,7 @@
 
             <h1>Crear nuevo entrenamiento</h1>
 
-            <form method="POST" action="/entrenamientos/crear-entrenamiento" enctype="multipart/form-data"> 
+            <form method="POST" action="/entrenamientos/crear-entrenamiento"> <!-- al incluir este atributo, no se rellenan algunos campos: enctype="multipart/form-data -->
 
                 <div class="form-group">
                     <label>Nombre</label>
@@ -50,8 +50,8 @@
                 <div class='form-group'>
                     <label for="exercise-list">Imagen del ejercicio:</label>
                     <div class="custom-file">
-                        <input type="file" name="image" class="custom-file-input" id="image">
-                        <label class="custom-file-label" for="image">Seleccionar imagen</label>
+                        <input type="file" name="image" class="custom-file-input" id="custom-file-lang" lang="es">
+                        <label class="custom-file-label" for="custom-file-lang">Seleccionar imagen</label>
                     </div>
                     <button type="submit" class="btn btn-dark create-button">Crear nuevo entrenamiento</button>
             </form>

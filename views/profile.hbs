@@ -7,7 +7,7 @@
 
     <div class="row justify-content-around">
 
-        <div class="col-md-4">
+        <div class="col-md-4 profile-section">
 
 
             <h3>Mis entrenamientos</h3>
@@ -19,16 +19,11 @@
             </figure>
 
             <a href="/entrenamientos/mis-entrenamientos" class="btn btn-dark">Ver</a>
-            <hr>
+
         </div>
 
 
-        {{!-- [<a href="/entrenamientos/editar-entrenamiento?training_id={{_id}}">editar</a>]
-                [<a href="/entrenamientos/eliminar-entrenamiento?training_id={{_id}}">eliminar</a>] --}}
-
-
-
-        <div class="col-md-4">
+        <div class="col-md-4 profile-section">
 
 
             <h3>Favoritos</h3>
@@ -41,13 +36,13 @@
 
             <a href="/entrenamientos/entrenamientos-favoritos" class="btn btn-dark">Ver</a>
 
-            <hr>
+
         </div>
     </div>
 </div>
 
 
-<div class="col text-center">
+<div class="col text-center profile-buttons">
     <a href="/entrenamientos/crear-entrenamiento" class="btn btn-dark logout-button">Crear entrenamiento</a>
 
     <a href="/cerrar-sesion" class="btn btn-dark logout-button">Cerrar sesión</a>

@@ -1,13 +1,19 @@
 {{> navBar}}
 <div class="container">
 
-    <h1>MIS ENTRENAMIENTOS</h1>
+    <h1>Mis entrenamientos creados</h1>
 
     <hr>
 
     <div class="row justify-content-around">
 
+        {{#each myTrainings}}
         <div class="col-md-4 details-text">
+
+
+            <figure class="abs-img">
+                <img class="fav-img" src="{{image}}" alt="{{name}} ">
+            </figure>
 
             <h3>{{name}}</h3>
 
@@ -20,23 +26,12 @@
             <hr>
 
         </div>
+        {{/each}}
 
 
-        <div class="col-md-4">
-
-            <article>
-                <figure class="abs-img">
-                    <img src="{{image}}" alt="{{name}}">
-                </figure>
-                
-            </article>
-
-
-
-        </div>
     </div>
 
-
-    <hr>
+    <div class="col text-center my-tr-button">
     <a href="/perfil" class="btn btn-dark">Volver a Perfil</a>
+    </div>
     {{> footer}}

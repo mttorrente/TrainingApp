@@ -1,19 +1,19 @@
 {{> navBar}}
 <div class="container">
 
-    <h1>FAVORITOS</h1>
+    <h1>Favoritos</h1>
 
     <hr>
 
     <div class="row justify-content-around">
 
+        {{#each favourites}}
         <div class="col-md-4 details-text">
 
-            {{#each favourites}}
 
-             <figure class="abs-img">
-                    <img class="fav-img" src="{{image}}" alt="{{name}} ">
-                </figure>
+            <figure class="abs-img">
+                <img class="fav-img" src="{{image}}" alt="{{name}} ">
+            </figure>
 
             <h3>{{name}}</h3>
 
@@ -25,28 +25,18 @@
             <hr>
 
         </div>
+        {{/each}}
 
-        <div class="col-md-4">
 
-            <article>
-               
-               
-            </article>
 
-           {{/each}}
-            
-            
-           
-        </div>
-       
     </div>
 
 
-    <hr>
-<div class="col text-center">
-<a href="/perfil" class="btn btn-dark">Volver a Perfil</a>
-</div> 
 
-</div>
- 
-{{> footer}}
+    
+    <div class="col text-center my-tr-button">
+        <a href="/perfil" class="btn btn-dark">Volver a Perfil</a>
+    </div>
+
+
+    {{> footer}}

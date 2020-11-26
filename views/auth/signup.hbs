@@ -1,12 +1,12 @@
 {{> navBar}}
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-6 auth-section">
 
             <h1>Registro de usuario</h1>
 
             <form action="/registro" method="POST">
-                <div class='form-group'>
+                <div class='form-group auth-div'>
                     <label for='username'>Nombre de usuario</label>
                     <input name='username' type='text' class='form-control' placeholder='nombre de usuario'
                         id='username'>
@@ -15,7 +15,7 @@
                     <label for='password'>Contraseña</label>
                     <input name='password' type='password' class='form-control' placeholder='******' id='password'>
                 </div>
-                <button type='submit' class='logout-button btn btn-dark btn-block'>Registrarme</button>
+                <button type='submit' class='logout-button btn btn-dark btn-block auth-button'>Registrarme</button>
                 {{#if errorMsg}}
                 <p style="margin-top: 10px;background: red; color: white; text-align: center; padding: 10px">
                     {{errorMsg}}</p>
