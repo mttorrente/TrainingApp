@@ -40,6 +40,8 @@ const trainingSchema = new Schema({
     timestamps: true
 });
 
+trainingSchema.index({ location: '2dsphere' }) 
+
 const Training = mongoose.model("Training", trainingSchema);
 
 module.exports = Training;

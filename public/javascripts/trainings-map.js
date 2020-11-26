@@ -2,22 +2,22 @@ let mapInstance
 
 function initApp() {
     drawMap()
-    getTrainings()
+    getTrainingsFromAPI()
 }
 
 
 function drawMap() {
     mapInstance = new google.maps.Map(
         document.querySelector('#trainingsMap'),
-        { center: { lat: 40.392499, lng: -3.698214 }, zoom: 13, styles: mapStyles.retro }
+        { center: { lat: 40.41142, lng: -3.69153 }, zoom: 13, styles: mapStyles.retro }
     )
 }
 
 
-function getTrainings() {
+function getTrainingsFromAPI() {
 
     axios
-        .get('/trainings/trainings-list')
+        .get('/api/entrenamientos')
         .then(response => drawMarkers(response.data))
         .catch(err => console.log(err))
 }
@@ -32,7 +32,7 @@ function drawMarkers(trainings) {
         new google.maps.Marker({
             map: mapInstance,
             position,
-            title: elm.name
+            title: elm.description
             
         })
     })

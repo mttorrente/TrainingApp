@@ -17,7 +17,10 @@ const trainings = [
         duration: 50,
         exercisesNumber: 4,
         exercises: 'Cardio',
-        location: [40.41837, -3.68295],
+        location: {
+            type: 'Point',
+            coordinates: [40.41837, -3.68295]
+        },
         image: '/images/Zumba1.jpeg'
     },
 
@@ -28,18 +31,24 @@ const trainings = [
         duration: 40,
         exercisesNumber: 6,
         exercises: 'Cardio',
-        location: [40.39752, -3.71010],
+        location: {
+            type: 'Point',
+            coordinates: [40.39752, -3.71010]
+        },
         image: '/images/yoga1.jpeg'
     },
 
     {
-        name: 'Crossfit al aire libre',
+        name: 'Crossfit',
         description: 'Apúntate a nuestro team de crossfiteros en el parque Tierno Galván a las 17:30h.',
         type: 'Al aire libre',
         duration: 60,
         exercisesNumber: 8,
         exercises: 'Cardio',
-        location: [40.38998, -3.68242],
+        location: {
+            type: 'Point',
+            coordinates: [40.38998, -3.68242]
+        },
         image: '/images/crossfit1.jpg'
     },
 
@@ -50,7 +59,10 @@ const trainings = [
         duration: 60,
         exercisesNumber: 1,
         exercises: 'Cardio',
-        location: [40.42083, -3.72830],
+        location: {
+            type: 'Point',
+            coordinates: [40.42083, -3.72830]
+        },
         image: '/images/running.jpg'
     },
 
@@ -61,7 +73,11 @@ const trainings = [
         duration: 50,
         exercisesNumber: 1,
         exercises: 'Cardio',
-        location: [40.41969, -3.65591],
+        location: {
+            type: 'Point',
+            coordinates: [40.41969, -3.65591]
+        },
+
         image: '/images/meditacion.jpg'
     },
 
@@ -72,7 +88,11 @@ const trainings = [
         duration: 60,
         exercisesNumber: 3,
         exercises: 'Cardio',
-        location: [40.41184, -3.67904],
+        location: {
+            type: 'Point',
+            coordinates: [40.41184, -3.67904]
+
+        },
         image: '/images/patinaje.jpg'
     }
 ]
