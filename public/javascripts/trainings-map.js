@@ -2,7 +2,7 @@ let mapInstance
 
 function initApp() {
     drawMap()
-    getTrainingsFromAPI()
+    getTrainings()
 }
 
 
@@ -14,10 +14,10 @@ function drawMap() {
 }
 
 
-function getTrainingsFromAPI() {
+function getTrainings() {
 
     axios
-        .get('/api/trainings')
+        .get('/trainings/trainings-list')
         .then(response => drawMarkers(response.data))
         .catch(err => console.log(err))
 }

@@ -5,32 +5,29 @@
     </div>
 
     <hr>
-{{!-- 
-    <div class="row justify-content-center filter-section"> --}}
-        {{!-- <form action="/entrenamientos">
+
+    <div class="row justify-content-center filter-section">
+        <form action="/entrenamientos" method="GET">
             <div class="form-row align-items-center">
-                
-                    {{!-- <select name="trainingsSel">
-                        <option>Elige lugar...</option>
-                        <option value="1">Al aire libre</option>
-                        <option value="2">En casa</option>
-                    </select> --}}
-                </div>
-                
                 <div class="col-auto my-1">
-                    <button type="submit" class="btn btn-dark btn-sm">Filtrar</button>
-                </div>
-            
-        </form> --}}
-        <form action='/entrenamientos'>
-        <select name="trainingsSel">
-                        <option>Elige lugar...</option>
+                    <select name="select" class="custom-select mr-sm-2">
+                        <option selected>Elige lugar...</option>
                         <option value="1">Al aire libre</option>
                         <option value="2">En casa</option>
-            </select>
-            <button type="submit" class="btn btn-dark btn-sm">Filtrar</button>
+                    </select>
+                </div>
+                <div class="col-auto my-1">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                        <label class="custom-control-label" for="customControlAutosizing">Recordar mi elección</label>
+                    </div>
+                </div>
+                <div class="col-auto my-1">
+                    <button value="1" type="submit" class="btn btn-dark btn-sm">Filtrar</button>
+                </div>
+            </div>
         </form>
-    
+    </div>
 
     <div class="row justify-content-around">
 

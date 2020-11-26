@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const uploadCloud = require('../configs/cdn-upload.config.js')
+
 
 const Training = require('./../models/training.model')
 const User = require('../models/user.model')
@@ -9,36 +11,23 @@ const User = require('../models/user.model')
 const ensureAuthenticated = (req, res, next) => req.isAuthenticated() ? next() : res.render('auth/login', { errorMsg: 'Desautorizado, inicia sesión' })
 const checkRole = admittedRoles => (req, res, next) => admittedRoles.includes(req.user.role) ? next() : res.render('auth/login', { errorMsg: 'Desautorizado, no tienes permisos' })
 
-// const home = 'En casa'
-// const outside = 'Al aire libre'
-
-// const checkFilter = placeChosen => (req, res, next) => placeChosen.includes(req.training.type) ? next() : res.render('trainings/trainings-list')
-
 
 // Trainings list (GET)
 router.get('/', (req, res, next) => {
 
+    if (req.query.select === '1') {
+        res.redirect('/entrenamientos/al-aire-libre')
+    }
+   else if(req.query.select === '2') {
+       res.redirect('/entrenamientos/en-casa')
+   } else {
+   
     Training
-        .find()                                                                             
-        .then(allTrainings => res.render('trainings/trainings-list', { allTrainings }))     
-        .catch(err => next(err))
-})
-
-
-// Trainings list (POST)
-router.post('/', (req, res, next) => {
-
-//     const {trainingsSel} = req.body 
-//     console.log(traningsSel)
-
-//     if (!trainingsSel) {
-//         res.redirect('/entrenamientos')
-//     }
-//    else if(trainingsSel === '1') {
-       res.redirect('/entrenamientos/al-aire-libre')
-//    } else {
-//        res.redirect('/entrenamientos/en-casa')
-//    }
+    .find()                                                                             
+    .then(allTrainings => res.render('trainings/trainings-list', { allTrainings }))     
+    .catch(err => next(err))
+   }
+     
 })
 
 
@@ -79,9 +68,12 @@ router.get('/crear-entrenamiento',  ensureAuthenticated, checkRole(['USER', 'ADM
 
 
 // New training form: (POST)
-router.post('/crear-entrenamiento', (req, res) => {
+router.post('/crear-entrenamiento', uploadCloud.single('image'), (req, res) => {
     
-    const { name, description, type, duration, exercisesNumber, exercises, location, image } = req.body
+    const { name, description, type, duration, exercisesNumber, exercises, location } = req.body
+    console.log(req.file)
+    const image = req.file.path
+    
     
     const ownerId = req.user.id
 
