@@ -4,7 +4,6 @@ const router = express.Router()
 const Training = require('./../models/training.model')
 
 
-// Endpoints
 router.get('/entrenamientos', (req, res) => {
 
     Training

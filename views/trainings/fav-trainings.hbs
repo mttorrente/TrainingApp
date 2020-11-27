@@ -20,7 +20,7 @@
             <p><strong>Lugar: </strong>{{type}}</p>
 
             <a href="/entrenamientos/detalle/{{_id}}" class="btn btn-dark">Detalles</a>
-            <a href="#" class="btn btn-dark">Quitar</a>
+            <a href="/entrenamientos/eliminar-favorito?training_id={{_id}}" class="btn btn-dark">Quitar</a>
 
             <hr>
 
@@ -28,12 +28,9 @@
         {{/each}}
 
 
-
     </div>
 
 
-
-    
     <div class="col text-center my-tr-button">
         <a href="/perfil" class="btn btn-dark">Volver a Perfil</a>
     </div>

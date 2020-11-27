@@ -173,4 +173,15 @@ router.post('/entrenamientos-fav', ensureAuthenticated, (req, res) => {
 })
 
 
+// Remove from favourites
+router.get('/eliminar-favorito', (req, res) => {
+
+    const trainingId = req.query.training_id
+
+    Training
+        .findByIdAndRemove(trainingId)
+        .then(() => res.redirect('/entrenamientos/entrenamientos-favoritos'))
+        .catch(err => console.log(err))
+})
+
 module.exports = router

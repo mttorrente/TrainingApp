@@ -33,8 +33,6 @@
 
         <div class="col-md-4 training-col">
 
-
-
             <ul class="trainings-list">
                 {{#each allTrainings}}
                 <li>
@@ -58,36 +56,23 @@
                 </li>
                 {{/each}}
             </ul>
-
-
-
         </div>
-
         <hr>
 
-
         <div class="col-md-8 map-container">
-
-
-
             <div id="trainingsMap"></div>
-
-
-
         </div>
     </div>
 </div>
-
-
-
 <div class="col text-center">
     <a href="/entrenamientos/crear-entrenamiento" class="btn btn-dark">Crear entrenamiento</a>
 </div>
 
+
 {{!-- Scripts estáticos --}}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 <script src="/javascripts/styles.js"></script>
 <script src="/javascripts/trainings-map.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{map}}&callback=initApp"></script>
+
 {{> footer}}
