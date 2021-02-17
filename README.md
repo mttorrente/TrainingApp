@@ -19,6 +19,8 @@ Sign up, create your profile and share your own training rutines with the "Train
   * MongoDB
   * Handlebars
   * Passport
+  * Bcrypt
+  * Cloudinary
  
 ## Acknowledgements🎖
  * Product Owner: Belén Olías
