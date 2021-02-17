@@ -8,7 +8,7 @@ Sign up, create your profile and share your own training rutines with the "Train
 * Teresa Torrente
 * Adrián Monzón
 
-## Technologies used 
+## Technologies  
 * HTML5
 * CSS3
 * Bootstrap 
@@ -21,6 +21,7 @@ Sign up, create your profile and share your own training rutines with the "Train
   * Passport
   * Bcrypt
   * Cloudinary
+  * Google Maps API
  
 ## Acknowledgements🎖
  * Product Owner: Belén Olías
